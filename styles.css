@@ -1,0 +1,65 @@
+body {
+	color: #FFFFFF;
+	font-size: 10px;
+	margin: 0px;
+	background-color: #337497;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+a {
+	font-weight: bold;
+	text-decoration: none;
+	color: #337497;
+}
+a:hover {
+	text-decoration: underline;
+}
+td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #337497;
+}
+input, textarea {
+	border: 1px solid #337497;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #337497;
+}
+
+input.checkbox, input.radio, input.image {  
+	border: none; 
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 10px;
+}
+
+ul {
+	padding: 0px 0px 0px 6px;
+	margin: 0px 0px 0px 10px;
+	list-style-image: url(Images/Bullet.gif);
+}
+.bold {
+	font-weight: bold;
+}
+.softfill {
+	background-color: #EEEEEE;
+}
+.softborder {
+	border: 1px solid #CCCCCC;
+}
+.underline {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #006600;
+	border-right-color: #006600;
+	border-bottom-color: #006600;
+	border-left-color: #006600;
+}
+.maintable {
+	border: 10px solid #3399CC;
+}

@@ -1,0 +1,29 @@
+Queries needed
+
+1. Linked MySQL Database table in MS-Access (Archive)
+2. Linked SQLite Database table in MS-Access (group_message)
+3. Linked SQLite Database table in MS-Access (person)
+
+Query 1 (Create_Content)
+SELECT gm.id, gm.Date, gm.person, gm.subject, gm.content, StrConv([content],64) AS NewContent, Mid([NewContent],InStr([NewContent],">")+1) AS Content2, Left([Content2],Len([Content2])-6) & "<br><br><br>" AS FinalContent
+FROM group_message AS gm;
+
+This query will modify the BLOB within the table group_message so that it can be used
+Also the beginning and ending of the content will be slightly modified
+
+I also created an Import_Person table which is the same as the linked person table
+my SQLlite ODBC connection does not allow to search with ie. Like a%
+
+But actually it should not be needed .. 
+
+Query 2 (update query)
+INSERT INTO ImportPerson ( id, name, joined, email, is_member )
+SELECT P.id, P.name, P.joined, P.email, P.is_member
+FROM person AS P LEFT JOIN ImportPerson AS IP ON P.id = IP.id
+WHERE (((IP.id) Is Null));
+
+Query 3 (update query towards the MySQL database, if you have a large database it can take a very long time (6000 messages around 20 minutes in my environment)
+INSERT INTO archive ( YahooMessageID, RecDate, subject, SubjectSrt, Message, FromUser, FromEmail )
+SELECT Create_Content.id, Create_Content.Date, Create_Content.subject, Create_Content.subject, Create_Content.FinalContent, ImportPerson.name, ImportPerson.email
+FROM (Create_Content INNER JOIN ImportPerson ON Create_Content.person = ImportPerson.id) LEFT JOIN archive ON Create_Content.id = archive.YahooMessageID
+WHERE (((archive.YahooMessageID) Is Null));

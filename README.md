@@ -1,4 +1,9 @@
 # YahooGroups
+
+as of 2022 and earlier, Yahoogroups does not offer groups anymore
+Therefor these scripts are not in use anymore and it served it purpose.
+Archived.
+
 Create your own archive for yahoogroups. Need PGOffline &amp; MS-ACCESS 
 
 For many years I am using PGOffline, a tool to get all the content from yahoogroups.
